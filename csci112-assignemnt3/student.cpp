@@ -6,7 +6,7 @@ using namespace std;
 class CStudent
 {
 private:
-
+//Data Members
 	char student_name[50];
 	int student_ID;
 	char student_email_username[10];
@@ -18,6 +18,7 @@ private:
 public:
     void registerStudent()
     {
+//A function that prompts user for information and puts it in data members through setters
         char name[50];
         int ID;
         char username[10];
@@ -25,16 +26,16 @@ public:
         float grades[5];
         float score;
         char password[10];
-
+//Prompt User to enter name and put it in data member
         cout << "Enter Student Name: ";
         fgets(name,50,stdin);
         set_student_name(name);
-
+//Prompt User to enter ID and put it in data member
         cout << "Enter Student ID: ";
         scanf("%d", &ID);
         set_student_id(ID);
         fflush(stdin);
-
+//Prompt User to enter Major and put it in data member
         cout << "Enter Student Major: ";
         fgets(major,50,stdin);
         set_student_major(major);
@@ -44,7 +45,7 @@ public:
         fgets(username,10,stdin);
         set_student_email_username(username);
         fflush(stdin);
-
+//Prompt User to enter Password and put it in data member
         cout << "Enter Student Password: ";
         gets(password);
         set_student_email_password(password);
@@ -57,7 +58,7 @@ public:
 
     }
 
-	//Name
+	//Name (setter and getter)
 	void set_student_name(char* name) {
 		strcpy(student_name, name);
 	}
@@ -65,7 +66,7 @@ public:
 	{
 	    return student_name;
 	}
-	//ID
+	//ID (setter and getter)
 	void set_student_id(int ID) {
 		student_ID = ID;
 	}
@@ -73,7 +74,7 @@ public:
 	{
 	    return student_ID;
 	}
-	//Username
+	//Username (setter and getter)
 	void set_student_email_username(char* username) {
 		strcpy(student_email_username, username);
 	}
@@ -81,7 +82,7 @@ public:
 	{
 	    return student_email_username;
 	}
-	//Password
+	//Password (setter and getter)
 	void set_student_email_password(char* password)
 	{
 	    strcpy(student_email_password, password);
@@ -90,7 +91,7 @@ public:
 	{
 	    return student_email_password;
 	}
-	//Major
+	//Major (setter and getter)
 	void set_student_major(char* major) {
 		strcpy(student_major, major);
 	}
@@ -98,12 +99,12 @@ public:
 	{
 	    return student_major;
 	}
-	//Grades
+	//Grades (setter and getter)
 	void set_student_grades(float gds[5]) {
 		for(int i = 0; i<5;++i)
             student_grades[i] = gds[i];
 	}
-	//Score
+	//Score (setter and getter)
 	void set_student_score(float value) {
 	    int sum;
 		for(int i = 0; i<5;++i)
@@ -115,8 +116,8 @@ public:
 	    return student_score;
 	}
 
-	//Getters
 	void get_student_info() {
+	//A function that displays all of the students information
 		cout << "Name: " << get_student_name();
 		cout << "ID: " << get_student_ID() << "\n";
         cout << "Major: " << get_student_major();
