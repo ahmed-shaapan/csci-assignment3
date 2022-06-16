@@ -1,6 +1,6 @@
-#include <iostream>
 #include <cstring>
-
+#include <string>
+#include<iostream>
 using namespace std;
 
 class CStudent
@@ -23,33 +23,28 @@ public:
         int ID;
         char username[10];
         char major[10];
-        float grades[5];
-        float score;
         char password[10];
 //Prompt User to enter name and put it in data member
         cout << "Enter Student Name: ";
-        fgets(name,50,stdin);
+        cin>>name;
         set_student_name(name);
 //Prompt User to enter ID and put it in data member
         cout << "Enter Student ID: ";
-        scanf("%d", &ID);
+		cin >> ID;
         set_student_id(ID);
-        fflush(stdin);
 //Prompt User to enter Major and put it in data member
         cout << "Enter Student Major: ";
-        fgets(major,50,stdin);
-        set_student_major(major);
-        fflush(stdin);
+		cin >> major;
+		set_student_major(major);
 
         cout << "Enter Student Username: ";
-        fgets(username,10,stdin);
-        set_student_email_username(username);
-        fflush(stdin);
+		cin >> username;
+		set_student_email_username(username);
 //Prompt User to enter Password and put it in data member
         cout << "Enter Student Password: ";
-        gets(password);
-        set_student_email_password(password);
-    /*
+		cin >> password;
+		set_student_email_password(password);
+   /*
         cout << "Enter Student Grades (5 courses): ";
         for(int i = 5; i<5;++i)
             cin >>grades[i];
@@ -60,7 +55,7 @@ public:
 
 	//Name (setter and getter)
 	void set_student_name(char* name) {
-		strcpy(student_name, name);
+		strncpy_s(student_name, name, 50);
 	}
 	char* get_student_name()
 	{
@@ -76,7 +71,7 @@ public:
 	}
 	//Username (setter and getter)
 	void set_student_email_username(char* username) {
-		strcpy(student_email_username, username);
+		strncpy_s(student_email_username, username,10);
 	}
 	char* get_student_username()
 	{
@@ -85,7 +80,7 @@ public:
 	//Password (setter and getter)
 	void set_student_email_password(char* password)
 	{
-	    strcpy(student_email_password, password);
+		strncpy_s(student_email_password, password, 10);
 	}
 	char* get_student_password()
 	{
@@ -93,7 +88,7 @@ public:
 	}
 	//Major (setter and getter)
 	void set_student_major(char* major) {
-		strcpy(student_major, major);
+		strcpy_s(student_major, major);
 	}
 	char* get_student_major()
 	{
@@ -106,7 +101,7 @@ public:
 	}
 	//Score (setter and getter)
 	void set_student_score(float value) {
-	    int sum;
+	    float sum=0;
 		for(int i = 0; i<5;++i)
             sum += student_grades[i];
         student_score = sum/100;
@@ -123,20 +118,5 @@ public:
         cout << "Major: " << get_student_major();
 		cout << "Email Username: " << get_student_username();
 		cout << "Email Password: " << get_student_password();
-		/*
-		cout << "Grades: " << student_grades << endl;
-
-		cout << "Score: " << student_score << endl;
-		*/
 	}
-
-
 };
-
-int main()
-{
-	CStudent obj1;
-	CStudent * objp=&obj1;
-    obj1.registerStudent();
-	obj1.get_student_info();
-}
