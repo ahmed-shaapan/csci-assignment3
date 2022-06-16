@@ -120,3 +120,36 @@ public:
 		cout << "Email Password: " << get_student_password();
 	}
 };
+//Grades (setter and getter)
+	void set_student_grades(float grades[5]) {
+		for(int i = 0; i<5;++i)
+            student_grades[i] = grades[i];
+	}
+	//Score (setter and getter)
+	void set_student_score(float value) {
+	    int sum;
+		for(int i = 0; i<5;++i)
+            sum += student_grades[i];
+            student_score = sum/100;
+	}
+	float get_student_score()
+	{
+	    return student_score;
+	}
+	void set_calculate_GPA(float score){
+        int GPA= (student_score * 4)/100;
+	}
+    float get_calculate_GPA(){
+        return calculate_GPA;
+    }
+	void get_student_info() {
+	//A function that displays all of the students information
+		cout << "Name: " << get_student_name();
+		cout << "ID: " << get_student_ID() << "\n";
+        cout << "Major: " << get_student_major();
+		cout << "Email Username: " << get_student_username()<< "\n";
+		cout << "Email Password: " << get_student_password()<< "\n";
+		cout << "Score: " << get_student_score() << endl;
+		cout << "GPA: " << get_calculate_GPA()<< endl;
+
+	}
